@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("java")
     id("java-library")
-    kotlin("jvm") version "2.2.20"
+    kotlin("jvm") version "2.2.21"
     id("com.gradleup.shadow") version "9.3.1" apply false
     id("dev.architectury.loom") version "1.11-SNAPSHOT" apply false
     id("architectury-plugin") version "3.4-SNAPSHOT" apply false

@@ -56,7 +56,7 @@ dependencies {
         "io.wispforest:accessories-neoforge:${property("accessories_version")}"
     )
     modRuntimeOnly(
-        "maven.modrinth:cobblemon-mega-showdown:${property("mega_showdown_version")}-neoforge"
+        "maven.modrinth:SszvX85I:${property("mega_showdown_neoforge_version_id")}"
     )
 
     implementation(project(":common", configuration = "namedElements"))
@@ -103,6 +103,6 @@ tasks {
         inputFile.set(shadowJar.flatMap { it.archiveFile })
         archiveBaseName.set("cobblemon-eld")
         archiveVersion.set(project.version.toString())
-        archiveClassifier.set("neoforge-mc1.21.1-cob1.7.3")
+        archiveClassifier.set("neoforge-mc1.21.1-cob1.8.1")
     }
 }

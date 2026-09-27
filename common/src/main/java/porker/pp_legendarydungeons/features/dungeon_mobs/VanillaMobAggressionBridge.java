@@ -2,6 +2,9 @@ package porker.pp_legendarydungeons.features.dungeon_mobs;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.monster.Guardian;
+import net.minecraft.world.entity.monster.Pillager;
 import porker.pp_legendarydungeons.features.dungeon_factions.DungeonFactionService;
 
 import java.util.HashMap;
@@ -20,6 +23,11 @@ import java.util.UUID;
 public final class VanillaMobAggressionBridge {
     private static final Map<UUID, UUID> RETAINED_TARGETS = new HashMap<>();
 
+    private static final double CHASE_ASSIST_SPEED = 1.0D;
+    private static final double MELEE_STOP_DISTANCE = 2.0D;
+    private static final double RANGED_STOP_DISTANCE = 6.0D;
+    private static final double NAVIGATION_TARGET_TOLERANCE = 2.0D;
+
     private VanillaMobAggressionBridge() {
     }
 
@@ -35,6 +43,52 @@ public final class VanillaMobAggressionBridge {
 
         RETAINED_TARGETS.put(mob.getUUID(), target.getUUID());
         mob.setTarget(target);
+        assistPursuit(mob, target);
+    }
+
+    /**
+     * Gives managed targets enough movement authority to beat ordinary wander
+     * paths without installing another Goal that would compete with the mob's
+     * native melee, crossbow, trident, or beam attack Goal.
+     */
+    private static void assistPursuit(Mob mob, LivingEntity target) {
+        if (mob.isNoAi()
+                || !target.isAlive()
+                || mob.level() != target.level()) {
+            return;
+        }
+
+        double stopDistance = (mob instanceof Pillager || mob instanceof Guardian)
+                ? RANGED_STOP_DISTANCE
+                : MELEE_STOP_DISTANCE;
+
+        if (mob.distanceToSqr(target) <= stopDistance * stopDistance) {
+            return;
+        }
+
+        PathNavigation navigation = mob.getNavigation();
+        if (navigationAlreadyTracksTarget(navigation, target)) {
+            return;
+        }
+
+        navigation.moveTo(target, CHASE_ASSIST_SPEED);
+    }
+
+    private static boolean navigationAlreadyTracksTarget(
+            PathNavigation navigation,
+            LivingEntity target
+    ) {
+        if (navigation.isDone() || navigation.getTargetPos() == null) {
+            return false;
+        }
+
+        double dx = navigation.getTargetPos().getX() + 0.5D - target.getX();
+        double dy = navigation.getTargetPos().getY() + 0.5D - target.getY();
+        double dz = navigation.getTargetPos().getZ() + 0.5D - target.getZ();
+        double toleranceSquared =
+                NAVIGATION_TARGET_TOLERANCE * NAVIGATION_TARGET_TOLERANCE;
+
+        return dx * dx + dy * dy + dz * dz <= toleranceSquared;
     }
 
     public static void clearTarget(Mob mob) {
