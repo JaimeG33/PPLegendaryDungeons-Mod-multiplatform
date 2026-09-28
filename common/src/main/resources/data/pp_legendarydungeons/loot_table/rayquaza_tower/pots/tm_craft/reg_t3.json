@@ -70,8 +70,16 @@
           "type": "item",
                 "weight":4,
                 "quality": 4,
-           "name": "simpletms:tr_icebeam",
+           "name": "cobblemon:technical_machine",
           "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cobblemon:tm_move": {
+                  "move": "icebeam"
+                }
+              }
+            },
             {
               "function": "set_count",
               "count": {
@@ -85,8 +93,16 @@
           "type": "item",
                 "weight":4,
                 "quality": 4,
-           "name": "simpletms:tr_dragontail",
+           "name": "cobblemon:technical_machine",
           "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cobblemon:tm_move": {
+                  "move": "dragontail"
+                }
+              }
+            },
             {
               "function": "set_count",
               "count": {

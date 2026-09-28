@@ -113,8 +113,16 @@
                 "type":"item",
                 "weight":4,
           "quality": 4,
-                "name":"simpletms:tr_fling",
+                "name": "cobblemon:technical_machine",
                 "functions":[
+                  {
+                    "function": "minecraft:set_components",
+                    "components": {
+                      "cobblemon:tm_move": {
+                        "move": "fling"
+                      }
+                    }
+                  },
                   {
                     "function": "set_count",
                     "count": {
@@ -128,8 +136,16 @@
                 "type":"item",
                 "weight":4,
           "quality": 4,
-                "name":"simpletms:tr_scaryface",
+                "name": "cobblemon:technical_machine",
                 "functions":[
+                  {
+                    "function": "minecraft:set_components",
+                    "components": {
+                      "cobblemon:tm_move": {
+                        "move": "scaryface"
+                      }
+                    }
+                  },
                   {
                     "function": "set_count",
                     "count": {

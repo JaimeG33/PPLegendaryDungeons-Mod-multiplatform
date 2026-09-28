@@ -99,8 +99,16 @@
           "type": "item",
                 "weight":4,
                 "quality": 4,
-           "name": "simpletms:tr_takedown",
+           "name": "cobblemon:technical_machine",
           "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cobblemon:tm_move": {
+                  "move": "takedown"
+                }
+              }
+            },
             {
               "function": "set_count",
               "count": {
@@ -114,8 +122,16 @@
           "type": "item",
                 "weight":4,
                 "quality": 4,
-           "name": "simpletms:tr_aerialace",
+           "name": "cobblemon:technical_machine",
           "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cobblemon:tm_move": {
+                  "move": "aerialace"
+                }
+              }
+            },
             {
               "function": "set_count",
               "count": {

@@ -56,8 +56,16 @@
           "type": "item",
                 "weight":4,
                 "quality": 2,
-           "name": "simpletms:tr_meteorbeam",
+           "name": "cobblemon:technical_machine",
           "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cobblemon:tm_move": {
+                  "move": "meteorbeam"
+                }
+              }
+            },
             {
               "function": "set_count",
               "count": {
@@ -71,8 +79,16 @@
           "type": "item",
                 "weight":4,
                 "quality": 2,
-           "name": "simpletms:tr_nastyplot",
+           "name": "cobblemon:technical_machine",
           "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cobblemon:tm_move": {
+                  "move": "nastyplot"
+                }
+              }
+            },
             {
               "function": "set_count",
               "count": {
