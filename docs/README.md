@@ -25,16 +25,16 @@ Run a full release build from the repository root:
 
 | Component | Current target |
 |---|---|
-| Mod version | `1.1.0` |
+| Mod version | `1.1.3` |
 | Minecraft | `1.21.1` |
 | Java | `21` |
-| Cobblemon | `1.7.3+1.21.1` |
-| Development Mega Showdown | `1.6.9+1.7.3+1.21.1` |
-| Loader-accepted Mega Showdown | `1.6.7` or newer |
+| Cobblemon | `1.8.2+1.21.1` |
+| Development Mega Showdown | `1.3.0+1.8.2+1.21.1-hotfix` |
+| Loader-accepted Mega Showdown | `>=1.3.0 <1.4.0` |
 | Architectury API | `13.0.8` |
-| Fabric Loader | `0.17.2` |
-| Fabric API | `0.116.6+1.21.1` |
-| Fabric Language Kotlin | `1.13.6+kotlin.2.2.20` |
+| Fabric Loader | `0.17.3` |
+| Fabric API | `0.116.7+1.21.1` |
+| Fabric Language Kotlin | `1.13.7+kotlin.2.2.21` |
 | Accessories | `1.1.0-beta.52+1.21.1` |
 | NeoForge | `21.1.214` |
 | Kotlin for Forge | `5.10.0` |
@@ -42,6 +42,11 @@ Run a full release build from the repository root:
 The authoritative version value is `mod_version` in the root
 `gradle.properties`. Fabric and NeoForge metadata expand that value during
 resource processing.
+
+This is a compatibility-only release target. See [compatibility policy](COMPATIBILITY.md)
+for exact Mega Showdown pins versus permitted runtime ranges, and
+[validation results](testing/HOTFIX_1.1.3_VALIDATION.md) for checks actually run.
+The faction/aggression overhaul remains experimental and paused.
 
 ## Architecture at a glance
 
@@ -152,8 +157,8 @@ because the project has two loaders.
 The uploadable remapped JARs are expected at:
 
 ```text
-fabric/build/libs/cobblemon-eld-1.1.0-fabric-mc1.21.1-cob1.7.3.jar
-neoforge/build/libs/cobblemon-eld-1.1.0-neoforge-mc1.21.1-cob1.7.3.jar
+fabric/build/libs/cobblemon-eld-1.1.3-fabric-mc1.21.1-cob1.8.2.jar
+neoforge/build/libs/cobblemon-eld-1.1.3-neoforge-mc1.21.1-cob1.8.2.jar
 ```
 
 Do not upload:
@@ -218,13 +223,8 @@ Additional guides:
 
 ## Migration history
 
-The migration documents explain how the original Fabric project became the
-current common/Fabric/NeoForge layout:
-
-1. [`MULTILOADER_MIGRATION_MASTER_PLAN.md`](MULTILOADER_MIGRATION_MASTER_PLAN.md)
-2. [`migration/README.md`](migration/README.md)
-3. [`migration/PHASE_09_VALIDATION_RESULTS.md`](migration/PHASE_09_VALIDATION_RESULTS.md)
-4. [`migration/PHASE_10_RELEASE_WORKFLOW.md`](migration/PHASE_10_RELEASE_WORKFLOW.md)
-
-Migration documents are historical records. For current development decisions,
-use this README and the architecture guide before older phase notes.
+The [migration master plan](MULTILOADER_MIGRATION_MASTER_PLAN.md) records how
+the original Fabric project became the common/Fabric/NeoForge layout. Its old
+dependency targets are historical, not current release requirements. Use this
+README, the architecture guide, and [release checklist](RELEASE_CHECKLIST.md)
+for current work.

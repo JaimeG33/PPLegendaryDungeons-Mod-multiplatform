@@ -63,7 +63,7 @@ gradle.properties
 Current value:
 
 ```properties
-mod_version=1.1.0
+mod_version=1.1.3
 ```
 
 The root Gradle build assigns this project version to every module. Each
@@ -75,7 +75,7 @@ neoforge/src/main/resources/META-INF/neoforge.mods.toml
 ```
 
 The source metadata correctly contains `${version}`. The completed release JAR
-must contain `1.1.0` after resource processing.
+must contain `1.1.3` after resource processing.
 
 ## Module layout
 
@@ -133,13 +133,13 @@ BUILD SUCCESSFUL
 Fabric:
 
 ```text
-fabric/build/libs/cobblemon-eld-1.1.0-fabric-mc1.21.1-cob1.7.3.jar
+fabric/build/libs/cobblemon-eld-1.1.3-fabric-mc1.21.1-cob1.8.2.jar
 ```
 
 NeoForge:
 
 ```text
-neoforge/build/libs/cobblemon-eld-1.1.0-neoforge-mc1.21.1-cob1.7.3.jar
+neoforge/build/libs/cobblemon-eld-1.1.3-neoforge-mc1.21.1-cob1.8.2.jar
 ```
 
 Do not upload:

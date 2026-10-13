@@ -178,9 +178,10 @@ features/dungeon_factions/DungeonFactionService
 
 `DungeonPokemonManager` may ask that service whether a candidate is allied,
 hostile, or player-eligible, but it should not become the canonical owner of
-faction-to-faction relationships. Likewise, the planned vanilla
-`DungeonMobManager` should reuse the same service instead of implementing a
-second faction table.
+faction-to-faction relationships. The experimental vanilla `DungeonMobManager`
+also uses this service instead of implementing a second faction table.
+Faction/aggression development is paused during compatibility hotfixes; code
+existence does not establish reliable pursuit or attack behavior.
 
 Faction definitions are reloadable server data under `dungeon_factions`.
 Individual encounter profiles own player relation because two members of one
@@ -293,8 +294,8 @@ From the repository root:
 Upload only the remapped platform JARs:
 
 ```text
-fabric/build/libs/cobblemon-eld-1.1.0-fabric-mc1.21.1-cob1.7.3.jar
-neoforge/build/libs/cobblemon-eld-1.1.0-neoforge-mc1.21.1-cob1.7.3.jar
+fabric/build/libs/cobblemon-eld-1.1.3-fabric-mc1.21.1-cob1.8.2.jar
+neoforge/build/libs/cobblemon-eld-1.1.3-neoforge-mc1.21.1-cob1.8.2.jar
 ```
 
 Development slim, development shadow, sources, and common JARs are not player

@@ -2,7 +2,7 @@
 
 ## Cartographer injections
 
-The mod uses Fabric’s additive villager trade helper. It does not replace the vanilla trade map.
+The mod uses Architectury’s additive trade registry. It does not replace the vanilla trade map.
 
 ### Novice cartographer candidates
 

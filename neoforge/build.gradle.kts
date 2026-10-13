@@ -103,6 +103,6 @@ tasks {
         inputFile.set(shadowJar.flatMap { it.archiveFile })
         archiveBaseName.set("cobblemon-eld")
         archiveVersion.set(project.version.toString())
-        archiveClassifier.set("neoforge-mc1.21.1-cob1.8.1")
+        archiveClassifier.set("neoforge-mc1.21.1-cob1.8.2")
     }
 }
